@@ -15,7 +15,18 @@
 .menu {
   padding: 0;
   display: flex;
-  column-gap: 2rem;
+}
+
+.left-link {
+  padding-right: 1rem;
+}
+
+.center-link {
+  padding: 0 1rem;
+}
+
+.right-link {
+  padding-left: 1rem;
 }
 
 a {
@@ -27,5 +38,5 @@ a {
 }
 
 .v-line {
-  border: 1px solid darkgray;
+  border-left: 2px solid darkgray;
 }
