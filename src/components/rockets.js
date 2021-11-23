@@ -11,8 +11,8 @@ const RocketList = () => {
   }, [dispatch]);
 
   const rocketItem = rockets.map((item) => (
-    <div key={item.id} className="">
-      <img src={item.flickr_images[0]} alt={item.rocket_name} />
+    <div key={item.id} className="container-fluid d-flex my-4 mx-0 mainDiv">
+      <img className="img-fluid" src={item.flickr_images[0]} alt={item.rocket_name} />
       <div className="">
         <h3>{item.rocket_name}</h3>
         <div className="">
