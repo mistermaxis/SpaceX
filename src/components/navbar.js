@@ -6,7 +6,7 @@ const Navbar = () => (
   <div className="d-flex justify-content-center">
     <nav className="navbar nav border-bottom border-secondary">
       <div className="header-container">
-        <img className="logo" src={Planet} alt="" />
+        <img className="logo" src={Planet} alt="logo" />
         <h1>Space Traveler&apos;s Hub</h1>
       </div>
       <menu className="menu">
