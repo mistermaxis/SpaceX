@@ -1,23 +1,7 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchMissions } from '../redux/missions';
+import MissionList from '../components/missions';
 
-const Missions = () => {
-  const dispatch = useDispatch();
-  const missions = useSelector((state) => state.missionsReducer.missions);
-
-  useEffect(() => {
-    dispatch(fetchMissions());
-  }, [dispatch]);
-
-  return (
-    <div>
-      <h1>Missions</h1>
-      {
-        missions.map((mission) => (<p key={mission.mission_id}>{mission.mission_name}</p>))
-      }
-    </div>
-  );
-};
+const Missions = () => (
+  <MissionList />
+);
 
 export default Missions;
