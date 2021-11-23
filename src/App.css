@@ -2,12 +2,11 @@
   text-align: left;
 }
 
-.container{
+.container {
   margin: 1.1rem;
 }
 
-.mainDiv img{
-    max-width: 250px;
-    max-width: 250px;
-    padding-right: 1.5rem;
+.mainDiv img {
+  max-width: 250px;
+  padding-right: 1.5rem;
 }
