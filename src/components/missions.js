@@ -32,7 +32,13 @@ const MissionList = () => {
                 <td>{mission.mission_name}</td>
                 <td>{mission.description}</td>
                 <td className="align-middle"><Badge bg="secondary">NOT A MEMBER</Badge></td>
-                <td className="align-middle text-nowrap px-3"><Button variant="outline-secondary">Join Mission</Button></td>
+                <td className="align-middle text-nowrap px-3">
+                  {
+                    mission.joined
+                      ? <Button variant="outline-danger">Leave Mission</Button>
+                      : <Button variant="outline-secondary">Join Mission</Button>
+                  }
+                </td>
               </tr>
             ))
           }
