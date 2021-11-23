@@ -1,4 +1,6 @@
-const SET_MISSIONS = 'missions/missionsAdded';
+import apiGetElements from '../api/api';
+
+const GET_MISSIONS = 'missions/missionsAdded';
 
 const initialState = {
   missions: [],
@@ -6,15 +8,21 @@ const initialState = {
 
 const missionsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_MISSIONS:
+    case GET_MISSIONS:
       return { ...state, missions: action.missions };
     default:
       return state;
   }
 };
 
-export function setMissions() {
-  return { type: SET_MISSIONS, missions: [{ a: 'mission_1' }, { a: 'mission_2' }] };
+function getMissions(payload) {
+  return { type: GET_MISSIONS, missions: payload };
 }
+
+export const fetchMissions = () => async (dispatch) => {
+  const action = { type: GET_MISSIONS };
+  const missions = await apiGetElements(action);
+  dispatch(getMissions(missions));
+};
 
 export default missionsReducer;
