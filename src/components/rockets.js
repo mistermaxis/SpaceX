@@ -10,12 +10,20 @@ const RocketList = () => {
     dispatch(fetchRockets());
   }, [dispatch]);
 
+  const rocketItem = rockets.map((item) => (
+    <div key={item.id} className="">
+      <img src={item.flickr_images[0]} alt={item.rocket_name} />
+      <div className="">
+        <h3>{item.rocket_name}</h3>
+        <div className="">
+          <p>{item.description}</p>
+        </div>
+      </div>
+    </div>
+  ));
   return (
-    <div>
-      <h1>Rockets</h1>
-      {
-        rockets.map((rocket) => (<p key={rocket.rocket_id}>{rocket.rocket_name}</p>))
-      }
+    <div className="container">
+      {rocketItem}
     </div>
   );
 };
