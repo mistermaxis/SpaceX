@@ -1,6 +1,4 @@
-import apiGetElements from '../api/api';
-
-const GET_MISSIONS = 'missions/missionsAdded';
+import apiGetElements, { GET_MISSIONS } from '../api/api';
 
 const initialState = {
   missions: [],

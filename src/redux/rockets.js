@@ -1,6 +1,4 @@
-import apiGetElements from '../api/api';
-
-const GET_ROCKETS = 'missions/rocketsAdded';
+import apiGetElements, { GET_ROCKETS } from '../api/api';
 
 const initialState = {
   rockets: [],

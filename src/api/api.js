@@ -1,5 +1,5 @@
-const GET_MISSIONS = 'missions/missionsAdded';
-const GET_ROCKETS = 'missions/rocketsAdded';
+export const GET_ROCKETS = 'missions/rocketsAdded';
+export const GET_MISSIONS = 'missions/missionsAdded';
 const MISSIONS_API = 'https://api.spacexdata.com/v3/missions';
 const ROCKETS_API = 'https://api.spacexdata.com/v3/rockets';
 
