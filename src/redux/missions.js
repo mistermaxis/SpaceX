@@ -22,6 +22,11 @@ function getMissions(payload) {
 export const fetchMissions = () => async (dispatch) => {
   const action = { type: GET_MISSIONS };
   const missions = await apiGetElements(action);
+  missions.forEach((mission) => {
+    Object.assign(mission, {
+      joined: false,
+    });
+  });
   dispatch(getMissions(missions));
 };
 
