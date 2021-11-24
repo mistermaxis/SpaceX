@@ -29,24 +29,13 @@ function setJoinMission(payload) {
 export const fetchMissions = () => async (dispatch) => {
   const action = { type: GET_MISSIONS };
   const missions = await apiGetElements(action);
-  missions.forEach((mission) => {
-    Object.assign(mission, {
-      joined: false,
-    });
-  });
   dispatch(getMissions(missions));
 };
 
 export const joinMission = (missions, id) => (dispatch) => {
-  const newMissions = missions;
-  newMissions.forEach((mission) => {
-    if (mission.mission_id === id) {
-      Object.assign(mission, {
-        joined: true,
-      });
-    }
-  });
-  dispatch(setJoinMission(newMissions));
+  const index = missions.findIndex((item) => item.mission_id === id);
+  Object.assign(missions[index], { joined: true });
+  dispatch(setJoinMission(missions));
 };
 
 export default missionsReducer;
