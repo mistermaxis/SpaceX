@@ -41,7 +41,13 @@ const MissionList = () => {
               <tr key={mission.mission_id}>
                 <td>{mission.mission_name}</td>
                 <td>{mission.description}</td>
-                <td className="align-middle"><Badge bg="secondary">NOT A MEMBER</Badge></td>
+                <td className="align-middle">
+                  {
+                    mission.joined
+                      ? <Badge bg="info">Active Member</Badge>
+                      : <Badge bg="secondary">NOT A MEMBER</Badge>
+                  }
+                </td>
                 <td className="align-middle text-nowrap px-3">
                   {
                     mission.joined
