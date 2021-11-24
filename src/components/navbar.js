@@ -7,7 +7,7 @@ const Navbar = () => (
     <nav className="navbar nav border-bottom border-secondary">
       <div className="header-container">
         <img className="logo" src={Planet} alt="logo" />
-        <h1>Space Traveler&apos;s Hub</h1>
+        <h2>Space Travelers&apos; Hub</h2>
       </div>
       <menu className="menu">
         <NavLink className="left-link" to="/">Rockets</NavLink>
