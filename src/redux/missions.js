@@ -11,7 +11,14 @@ const missionsReducer = (state = initialState, action) => {
     case GET_MISSIONS:
       return { ...state, missions: action.missions };
     case JOIN_MISSION:
-      return { ...state, missions: action.missions };
+      return {
+        ...state,
+        missions: state.missions.map((mission) => (
+          mission.mission_id === action.id
+            ? { ...mission, joined: true }
+            : { ...mission }
+        )),
+      };
     default:
       return state;
   }
@@ -22,7 +29,7 @@ function getMissions(payload) {
 }
 
 function setJoinMission(payload) {
-  return { type: JOIN_MISSION, missions: payload };
+  return { type: JOIN_MISSION, id: payload };
 }
 
 export const fetchMissions = () => async (dispatch) => {
@@ -31,10 +38,8 @@ export const fetchMissions = () => async (dispatch) => {
   dispatch(getMissions(missions));
 };
 
-export const joinMission = (missions, id) => (dispatch) => {
-  const index = missions.findIndex((item) => item.mission_id === id);
-  Object.assign(missions[index], { joined: true });
-  dispatch(setJoinMission(missions));
+export const joinMission = (id) => (dispatch) => {
+  dispatch(setJoinMission(id));
 };
 
 export default missionsReducer;
