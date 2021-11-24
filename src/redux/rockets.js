@@ -26,7 +26,6 @@ const rocketsReducer = (state = initialState, action) => {
     case GET_ROCKETS:
       return { ...state, rockets: action.rockets };
     case BOOK_ROCKET:
-      console.log(state.rockets);
       return {
         ...state,
         rockets: state.rockets.map((rocket) => {
