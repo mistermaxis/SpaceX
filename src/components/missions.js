@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from 'react-bootstrap/Table';
 import Badge from 'react-bootstrap/Badge';
@@ -9,13 +9,17 @@ import './missions.css';
 const MissionList = () => {
   const dispatch = useDispatch();
   const missions = useSelector((state) => state.missionsReducer.missions);
+  const [reset, triggerReset] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchMissions());
-  }, [dispatch]);
+    if (missions.length === 0) {
+      dispatch(fetchMissions());
+    }
+  }, [reset]);
 
   function handleJoin(id) {
     dispatch(joinMission(missions, id));
+    triggerReset(!reset);
   }
 
   return (
@@ -39,8 +43,8 @@ const MissionList = () => {
                 <td className="align-middle text-nowrap px-3">
                   {
                     mission.joined
-                      ? <Button variant="outline-danger">{mission.joined}</Button>
-                      : <Button onClick={() => handleJoin(mission.mission_id)} variant="outline-secondary">{mission.joined}</Button>
+                      ? <Button variant="outline-danger">Leave Mission</Button>
+                      : <Button onClick={() => handleJoin(mission.mission_id)} variant="outline-secondary">Join Mission</Button>
                   }
                 </td>
               </tr>
