@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Table from 'react-bootstrap/Table';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
-import { fetchMissions, joinMission } from '../redux/missions';
+import { fetchMissions, joinMission, leaveMission } from '../redux/missions';
 import './missions.css';
 
 const MissionList = () => {
@@ -15,6 +15,10 @@ const MissionList = () => {
       dispatch(fetchMissions());
     }
   }, []);
+
+  function handleLeave(id) {
+    dispatch(leaveMission(id));
+  }
 
   function handleJoin(id) {
     dispatch(joinMission(id));
@@ -41,7 +45,7 @@ const MissionList = () => {
                 <td className="align-middle text-nowrap px-3">
                   {
                     mission.joined
-                      ? <Button variant="outline-danger">Leave Mission</Button>
+                      ? <Button onClick={() => handleLeave(mission.mission_id)} variant="outline-danger">Leave Mission</Button>
                       : <Button onClick={() => handleJoin(mission.mission_id)} variant="outline-secondary">Join Mission</Button>
                   }
                 </td>
