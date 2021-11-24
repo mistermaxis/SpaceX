@@ -23,9 +23,9 @@ const RocketList = () => {
         rockets.map((item) => (
           <div key={item.id} className="container-fluid d-flex my-4 mx-0 mainDiv">
             <img className="img-fluid" src={item.flickr_images[0]} alt={item.rocket_name} />
-            <div className="">
+            <div>
               <h3>{item.rocket_name}</h3>
-              <div className="">
+              <div>
                 <Badge bg="info">{handleReserved(item.reserved).badge}</Badge>
                 <p>{item.description}</p>
               </div>
