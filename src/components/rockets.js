@@ -14,8 +14,8 @@ const RocketList = () => {
     }
   }, []);
 
-  const handleMessage = (reserved) => (reserved ? 'Cancel reservation' : 'reserve Rocket');
-  const handleReserved = (reserved) => (reserved ? 'Reserved' : '');
+  const handleMessage = (reserved) => (reserved ? 'Cancel reservation' : 'Reserve Rocket');
+  const handleReserved = (reserved) => (reserved ? { badge: 'Reserved', class: 'outline-danger' } : { badge: '', class: 'outline-secondary' });
 
   return (
     <div className="container-fluid">
@@ -26,10 +26,10 @@ const RocketList = () => {
             <div className="">
               <h3>{item.rocket_name}</h3>
               <div className="">
-                <Badge bg="success">{handleReserved(item.reserved)}</Badge>
+                <Badge bg="success">{handleReserved(item.reserved).badge}</Badge>
                 <p>{item.description}</p>
               </div>
-              <Button type="button" variant="outline-danger" onClick={() => { dispatch(!item.reserved ? bookRocket(item.id) : cancelBooking(item.id)); }}>{handleMessage(item.reserved)}</Button>
+              <Button type="button" variant={handleReserved(item.reserved).class} onClick={() => { dispatch(!item.reserved ? bookRocket(item.id) : cancelBooking(item.id)); }}>{handleMessage(item.reserved)}</Button>
             </div>
           </div>
         ))
