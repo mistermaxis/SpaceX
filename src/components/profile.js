@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 const MyProfile = () => {
   const joinedMissions = useSelector((s) => s.missionsReducer.missions.filter((m) => m.joined));
-  const joinedRockets = useSelector((s) => s.rocketsReducer.rockets.filter((r) => r.joined));
+  const joinedRockets = useSelector((s) => s.rocketsReducer.rockets.filter((r) => r.reserved));
 
   return (
     <Container className="pt-3">
