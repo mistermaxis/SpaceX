@@ -7,10 +7,12 @@ const RocketList = () => {
   const rockets = useSelector((state) => state.rocketsReducer.rockets);
 
   useEffect(() => {
-    dispatch(fetchRockets());
-  }, [dispatch]);
+    if (rockets.length === 0) {
+      dispatch(fetchRockets());
+    }
+  }, []);
 
-  const handleMessage = (reserved) => (reserved ? 'Cancel Booking' : 'Book Rocket');
+  const handleMessage = (reserved) => (reserved ? 'Cancel reservation' : 'reserve Rocket');
 
   return (
     <div className="container-fluid">
