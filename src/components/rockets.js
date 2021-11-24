@@ -26,10 +26,10 @@ const RocketList = () => {
             <div className="">
               <h3>{item.rocket_name}</h3>
               <div className="">
-                <Badge bg="info">{handleReserved(item.reserved)}</Badge>
+                <Badge bg="success">{handleReserved(item.reserved)}</Badge>
                 <p>{item.description}</p>
               </div>
-              <Button type="button" onClick={() => { dispatch(!item.reserved ? bookRocket(item.id) : cancelBooking(item.id)); }}>{handleMessage(item.reserved)}</Button>
+              <Button type="button" variant="outline-danger" onClick={() => { dispatch(!item.reserved ? bookRocket(item.id) : cancelBooking(item.id)); }}>{handleMessage(item.reserved)}</Button>
             </div>
           </div>
         ))
