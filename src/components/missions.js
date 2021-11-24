@@ -1,25 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from 'react-bootstrap/Table';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
-import { fetchMissions, joinMission } from '../redux/missions';
+import { fetchMissions, joinMission, leaveMission } from '../redux/missions';
 import './missions.css';
 
 const MissionList = () => {
   const dispatch = useDispatch();
   const missions = useSelector((state) => state.missionsReducer.missions);
-  const [reset, triggerReset] = useState(false);
 
   useEffect(() => {
     if (missions.length === 0) {
       dispatch(fetchMissions());
     }
-  }, [reset]);
+  }, []);
+
+  function handleLeave(id) {
+    dispatch(leaveMission(id));
+  }
 
   function handleJoin(id) {
-    dispatch(joinMission(missions, id));
-    triggerReset(!reset);
+    dispatch(joinMission(id));
   }
 
   return (
@@ -39,11 +41,17 @@ const MissionList = () => {
               <tr key={mission.mission_id}>
                 <td>{mission.mission_name}</td>
                 <td>{mission.description}</td>
-                <td className="align-middle"><Badge bg="secondary">NOT A MEMBER</Badge></td>
+                <td className="align-middle">
+                  {
+                    mission.joined
+                      ? <Badge bg="info">Active Member</Badge>
+                      : <Badge bg="secondary">NOT A MEMBER</Badge>
+                  }
+                </td>
                 <td className="align-middle text-nowrap px-3">
                   {
                     mission.joined
-                      ? <Button variant="outline-danger">Leave Mission</Button>
+                      ? <Button onClick={() => handleLeave(mission.mission_id)} variant="outline-danger">Leave Mission</Button>
                       : <Button onClick={() => handleJoin(mission.mission_id)} variant="outline-secondary">Join Mission</Button>
                   }
                 </td>
