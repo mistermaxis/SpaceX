@@ -7,6 +7,10 @@ const initialState = {
   rockets: [],
 };
 
+function getRockets(payload) {
+  return { type: GET_ROCKETS, rockets: payload };
+}
+
 export const bookRocket = (id) => ({
   type: BOOK_ROCKET,
   id,
@@ -21,31 +25,27 @@ const rocketsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ROCKETS:
       return { ...state, rockets: action.rockets };
-
     case BOOK_ROCKET:
+      console.log(state.rockets);
       return {
         ...state,
-        rockets: state.rockets.map(rocket => {
+        rockets: state.rockets.map((rocket) => {
           if (rocket.id !== action.id) { return rocket; }
           return { ...rocket, reserved: true };
-        })
-      }
+        }),
+      };
     case CANCEL_BOOKING:
       return {
         ...state,
-        rockets: state.rockets.map(rocket => {
+        rockets: state.rockets.map((rocket) => {
           if (rocket.id !== action.id) { return rocket; }
           return { ...rocket, reserved: false };
-        })
-      }
+        }),
+      };
     default:
       return state;
   }
 };
-
-function getRockets(payload) {
-  return { type: GET_ROCKETS, rockets: payload };
-}
 
 export const fetchRockets = () => async (dispatch) => {
   const action = { type: GET_ROCKETS };
