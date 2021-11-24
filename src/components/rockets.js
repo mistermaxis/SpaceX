@@ -26,7 +26,7 @@ const RocketList = () => {
             <div className="">
               <h3>{item.rocket_name}</h3>
               <div className="">
-                <Badge bg="success">{handleReserved(item.reserved).badge}</Badge>
+                <Badge bg="info">{handleReserved(item.reserved).badge}</Badge>
                 <p>{item.description}</p>
               </div>
               <Button type="button" variant={handleReserved(item.reserved).class} onClick={() => { dispatch(!item.reserved ? bookRocket(item.id) : cancelBooking(item.id)); }}>{handleMessage(item.reserved)}</Button>
