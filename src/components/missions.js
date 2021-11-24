@@ -1,18 +1,26 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from 'react-bootstrap/Table';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
-import { fetchMissions } from '../redux/missions';
+import { fetchMissions, joinMission } from '../redux/missions';
 import './missions.css';
 
 const MissionList = () => {
   const dispatch = useDispatch();
   const missions = useSelector((state) => state.missionsReducer.missions);
+  const [reset, triggerReset] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchMissions());
-  }, [dispatch]);
+    if (missions.length === 0) {
+      dispatch(fetchMissions());
+    }
+  }, [reset]);
+
+  function handleJoin(id) {
+    dispatch(joinMission(missions, id));
+    triggerReset(!reset);
+  }
 
   return (
     <div className="pt-4 d-flex justify-content-center">
@@ -32,7 +40,13 @@ const MissionList = () => {
                 <td>{mission.mission_name}</td>
                 <td>{mission.description}</td>
                 <td className="align-middle"><Badge bg="secondary">NOT A MEMBER</Badge></td>
-                <td className="align-middle text-nowrap px-3"><Button variant="outline-secondary">Join Mission</Button></td>
+                <td className="align-middle text-nowrap px-3">
+                  {
+                    mission.joined
+                      ? <Button variant="outline-danger">Leave Mission</Button>
+                      : <Button onClick={() => handleJoin(mission.mission_id)} variant="outline-secondary">Join Mission</Button>
+                  }
+                </td>
               </tr>
             ))
           }
