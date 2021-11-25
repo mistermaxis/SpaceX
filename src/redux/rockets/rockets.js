@@ -1,4 +1,4 @@
-import apiGetElements, { GET_ROCKETS } from '../api/api';
+import apiGetElements, { GET_ROCKETS } from '../../api/api';
 
 const BOOK_ROCKET = 'space-travellers/rockets/BOOK_ROCKET';
 const CANCEL_BOOKING = 'space-travellers/rockets/LEAVE_ROCKET';
