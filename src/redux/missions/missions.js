@@ -1,4 +1,4 @@
-import apiGetElements, { GET_MISSIONS } from '../api/api';
+import apiGetElements, { GET_MISSIONS } from '../../api/api';
 
 const JOIN_MISSION = 'missions/missionJoined';
 const LEAVE_MISSION = 'missions/missionLeft';

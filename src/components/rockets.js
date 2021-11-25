@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { bookRocket, cancelBooking, fetchRockets } from '../redux/rockets';
+import { bookRocket, cancelBooking, fetchRockets } from '../redux/rockets/rockets';
 
 const RocketList = () => {
   const dispatch = useDispatch();
