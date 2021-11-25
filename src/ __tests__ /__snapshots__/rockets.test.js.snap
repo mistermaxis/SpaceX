@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Group of tests for Rockets page renders rockets list correctly 1`] = `
+<div
+  className="container-fluid"
+>
+  ;
+</div>
+`;
