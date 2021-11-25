@@ -37,4 +37,4 @@ describe('Testing react testing library', () => {
     expect(leaveButtons).toHaveLength(1);
     expect(activeBadges).toHaveLength(1);
   });
-})
+});
