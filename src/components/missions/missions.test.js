@@ -1,19 +1,16 @@
-import '@testing-library/react';
 import { screen, render as testRender } from '@testing-library/react';
 import { Provider } from 'react-redux';
+import userEvent from '@testing-library/user-event';
 import MissionList from './missions';
 import store from '../../redux/configureStore';
-import userEvent from '@testing-library/user-event';
 
-const render = component => testRender(
+const render = (component) => testRender(
   <Provider store={store}>
     {component}
-  </Provider>
+  </Provider>,
 );
 
 describe('Testing react testing library', () => {
-  
-
   it('Renders react components correctly', async () => {
     render(<MissionList />);
 
