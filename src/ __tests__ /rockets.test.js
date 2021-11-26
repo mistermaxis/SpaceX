@@ -5,10 +5,9 @@ import renderer from 'react-test-renderer';
 import RocketList from '../components/rockets';
 import store from '../redux/configureStore';
 
-jest.mock('../components/rockets')
+jest.mock('../components/rockets');
 
 describe('Group of tests for Rockets page', () => {
-
   it('renders rockets list correctly', () => {
     const list = renderer
       .create(<Provider store={store}><RocketList /></Provider>)
@@ -35,5 +34,4 @@ describe('Group of tests for Rockets page', () => {
     const listbtn2 = container.querySelector('.btn2');
     expect(listbtn2).toHaveTextContent('Cancel reservation');
   });
-
 });
