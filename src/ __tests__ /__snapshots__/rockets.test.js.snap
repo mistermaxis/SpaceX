@@ -19,6 +19,7 @@ exports[`Group of tests for Rockets page renders rockets list correctly 1`] = `
       <div>
         <button
           bg="info"
+          type="button"
         >
           Reserved
         </button>
@@ -28,7 +29,6 @@ exports[`Group of tests for Rockets page renders rockets list correctly 1`] = `
       </div>
       <button
         className="btn2"
-        onClick={[Function]}
         type="button"
         variant="outline-danger"
       >
@@ -51,6 +51,7 @@ exports[`Group of tests for Rockets page renders rockets list correctly 1`] = `
       <div>
         <button
           bg="info"
+          type="button"
         >
           
         </button>
@@ -60,7 +61,6 @@ exports[`Group of tests for Rockets page renders rockets list correctly 1`] = `
       </div>
       <button
         className="btn2"
-        onClick={[Function]}
         type="button"
         variant="outline-secondary"
       >
@@ -83,6 +83,7 @@ exports[`Group of tests for Rockets page renders rockets list correctly 1`] = `
       <div>
         <button
           bg="info"
+          type="button"
         >
           Reserved
         </button>
@@ -92,7 +93,6 @@ exports[`Group of tests for Rockets page renders rockets list correctly 1`] = `
       </div>
       <button
         className="btn2"
-        onClick={[Function]}
         type="button"
         variant="outline-danger"
       >
