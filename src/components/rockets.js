@@ -12,7 +12,7 @@ const RocketList = () => {
     if (rockets.length === 0) {
       dispatch(fetchRockets());
     }
-  }, []);
+  }, [dispatch, rockets.length]);
 
   const handleMessage = (reserved) => (reserved ? 'Cancel reservation' : 'Reserve Rocket');
   const handleReserved = (reserved) => (reserved ? { badge: 'Reserved', class: 'outline-danger' } : { badge: '', class: 'outline-secondary' });

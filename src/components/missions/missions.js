@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from 'react-bootstrap/Table';
 import Badge from 'react-bootstrap/Badge';
@@ -14,7 +15,7 @@ const MissionList = () => {
     if (missions.length === 0) {
       dispatch(fetchMissions());
     }
-  }, []);
+  }, [dispatch, missions.length]);
 
   function handleLeave(id) {
     dispatch(leaveMission(id));

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { screen, render as testRender } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import userEvent from '@testing-library/user-event';

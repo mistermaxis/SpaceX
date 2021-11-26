@@ -1,3 +1,4 @@
+import React from 'react';
 import RocketList from '../components/rockets';
 
 const Rockets = () => (
