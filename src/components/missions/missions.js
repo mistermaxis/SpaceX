@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Table from 'react-bootstrap/Table';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
-import { fetchMissions, joinMission, leaveMission } from '../redux/missions/missions';
+import { fetchMissions, joinMission, leaveMission } from '../../redux/missions/missions';
 import './missions.css';
 
 const MissionList = () => {
