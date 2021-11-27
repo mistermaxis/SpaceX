@@ -1,0 +1,42 @@
+.nav {
+  width: 93%;
+}
+
+.logo {
+  height: 3rem;
+  padding-right: 1rem;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  padding: 0;
+  display: flex;
+}
+
+.left-link {
+  padding-right: 1rem;
+}
+
+.center-link {
+  padding: 0 1rem;
+}
+
+.right-link {
+  padding-left: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.v-line {
+  border-left: 2px solid darkgray;
+}
